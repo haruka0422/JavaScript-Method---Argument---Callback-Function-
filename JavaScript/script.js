@@ -59,21 +59,19 @@ function addTax(price, func) {
   // 税込み価格を計算して四捨五入して整数にしている(スコープ内でしか参照できません。)
 
   const taxPrice = Math.round(price * 1.1);
-  const name1 = "トマト";
-  func(name1, taxPrice);
-  const name2 = "玉ねぎ";
-  func(name2, taxPrice);
-  return addTax;
+  func(taxPrice);
 }
 
 // トマトの税込み価格をコンソールに表示させる処理
 
-addTax(200, function (name1, taxPrice) {
-  console.log(name1 + "の税込み価格は" + taxPrice + "円です");
-});
+function tomatoPrice(taxPrice) {
+  console.log("トマトの税込み価格は" + taxPrice + "円です");
+}
+addTax(200, tomatoPrice);
 
 // 玉ねぎの税込み価格をコンソールに表示させる処理
 
-addTax(80, function (name2, taxPrice) {
-  console.log(name2 + "の税込み価格は" + taxPrice + "円です");
-});
+function tamanegiPrice(taxPrice) {
+  console.log("玉ねぎの税込み価格は" + taxPrice + "円です");
+}
+addTax(100, tamanegiPrice);
